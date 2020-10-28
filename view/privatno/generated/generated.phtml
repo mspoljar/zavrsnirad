@@ -1,0 +1,21 @@
+<div>
+    <?php
+     echo $shop->S_name;
+     echo '<br>' . $shop->S_size . ' ' . $shop->Type . '</br>';
+     echo '<br>' . $shop->S_description . '</br>';
+    ?>
+ </div>
+<div>
+    <?php
+        echo $shopkeeper->First_name . ' ' . $shopkeeper->Last_name . '</br>';
+        echo $shopkeeper->Race . ' ' . $shopkeeper->Age . '</br>';
+        echo $shopkeeper->Description;
+        ?>
+</div>
+<div class="grid-x grid-margin-x">
+    <?php 
+       foreach($items as $row){
+           include 'items.phtml';
+        }
+    ?>
+</div>

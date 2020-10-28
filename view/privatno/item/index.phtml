@@ -1,0 +1,44 @@
+<div class="grid-x grid-margin-x">
+    <div class="large-8 cell">
+        <form action="/item/searchItem" method="get">
+            <input type="text" name="scon" 
+            id="scon"
+            placeholder="Enter a part of the name,type or rarity"
+            value="<?php echo isset($_GET['scon']) ? $_GET['scon'] : '' ?>">
+            <input type="hidden" name="stranica" value="1">
+        </form>
+    </div>
+    <div class="large-4 cell">
+        <a class="success button expanded" 
+            href="/item/newItem"
+            style="border: 0px;">
+            Add new item</a>
+    </div>
+</div>
+
+<div class="grid-x grid-margin-x">
+    <?php 
+        foreach($podaci as $red){
+            include 'grid.phtml';
+        }
+        ?>
+</div>
+<nav>
+    <ul class="pagination text-center">
+        <li class="pagination-previous">
+            <a href="searchItem?scon=<?php echo $scon ?>&stranica=<?php echo $page-1 ?>">
+            Previous page</a>
+        </li>
+
+        <li class="current">
+            <span class="show-for-sr" >
+            You're on page</span> <?php 
+            echo $page . ' / ' . $maxpage;
+            ?>
+        </li>
+
+        <li class="pagination-next">
+            <a href="searchItem?scon=<?php echo $scon ?>&page=<?php echo $page+1 ?>" >Next page</a>
+        </li>
+    </ul>
+</nav>
